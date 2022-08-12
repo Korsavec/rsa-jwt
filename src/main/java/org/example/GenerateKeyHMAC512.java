@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,9 +52,13 @@ public class GenerateKeyHMAC512 {
 
 
         System.out.println(getJWTVerifier().verify(s));
+        System.out.println(Arrays.toString(getClaimsFromToken(s)));
+        System.out.println(isTokenExpired(s));
+        System.out.println(getSubject(s));
 
     }
 
+    // Верификация токена
     private static JWTVerifier getJWTVerifier() {
 
         try {
@@ -68,6 +73,22 @@ public class GenerateKeyHMAC512 {
 
         }
 
+    }
+
+
+    private static String[] getClaimsFromToken(String token) {
+        JWTVerifier verifier = getJWTVerifier();
+        return verifier.verify(token).getClaim("roles").asArray(String.class);
+    }
+
+    private static boolean isTokenExpired(String token) {
+        Date expiration = getJWTVerifier().verify(token).getExpiresAt();
+        return expiration.before(new Date());
+    }
+
+    public static String getSubject(String token) {
+        JWTVerifier verifier = getJWTVerifier();
+        return verifier.verify(token).getSubject();
     }
 
 }
