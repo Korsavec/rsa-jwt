@@ -13,11 +13,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StreamKey {
+public class GenerateRSAKeyStore {
 
     public static void main(String[] args) {
 
-        StreamKey key = new StreamKey();
+        GenerateRSAKeyStore key = new GenerateRSAKeyStore();
         key.getSer();
 
     }

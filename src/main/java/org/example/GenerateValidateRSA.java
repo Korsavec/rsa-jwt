@@ -17,16 +17,12 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
 
-public class JWTGenerateValidateRSA {
+public class GenerateValidateRSA {
 
     /*Генерация ключей
-
     openssl имеется вот тут C:\ Program Files \ Git \ usr \ bin
-
     openssl genrsa -out private.pem 2048
-
     openssl rsa -in private.pem -outform PEM -pubout -out public.pem
-
     openssl pkcs8 -topk8 -inform PEM -in private.pem -out private_key.pem -nocrypt*/
 
     public static void main(String[] args) throws InvalidKeySpecException, NoSuchAlgorithmException {
