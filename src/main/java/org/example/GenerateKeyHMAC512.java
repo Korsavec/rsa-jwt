@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GenerateKeyHS512 {
+public class GenerateKeyHMAC512 {
 
     public static void main(String[] args)  {
 
